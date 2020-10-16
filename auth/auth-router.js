@@ -12,7 +12,7 @@ router.post("/register", (req, res) => {
   dbFun
     .addUser(credentials)
     .then((dbRes) => {
-      res.status(200).json(dbRes);
+      res.status(201).json(dbRes);
     })
     .catch((dbErr) => {
       res.status(500).json(dbErr);

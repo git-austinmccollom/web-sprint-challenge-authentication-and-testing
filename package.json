@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-    "test": "jest --watch --verbose"
+    "test": "jest --watch --verbose --runInBand --detectOpenHandles",
+    "start": "node index.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -26,6 +30,7 @@
     "helmet": "^3.22.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.0",
+    "randomstring": "^1.1.5",
     "sqlite3": "^5.0.0",
     "supertest": "^5.0.0"
   },
