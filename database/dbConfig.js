@@ -1,5 +1,8 @@
-const knex = require('knex');
+const knex = require("knex");
+const knexfile = require("../knexfile.js");
 
-const knexConfig = require('../knexfile.js');
+// on heroku NOD_ENV will be 'production'
+const environment = process.env.DB_ENV || "development";
 
-module.exports = knex(knexConfig.development);
+const config = knexfile[environment];
+module.exports = knex(config);
