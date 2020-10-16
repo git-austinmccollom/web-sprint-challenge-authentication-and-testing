@@ -48,13 +48,12 @@ describe("server.js", () => {
 
       const loginRes = await request(server).post("/api/auth/login").send({ username: username, password: "wrong pass" });
       expect(loginRes.status).toEqual(expectedStatusCode);
-
-      // return request(server)
-      //   .post("api/auth/login")
-      //   .send({ username: username, password: "wrong pass" })
-      //   .then( loginRes => {
-      //     expect(loginRes.status).toEqual(expectedStatusCode);
-      //   })
     });
+    test("if login is correct, 200", async () => {
+      const expectedStatusCode = 200;
+
+      const loginRes = await request(server).post("/api/auth/login").send({ username: username, password: "pass" });
+      expect(loginRes.status).toEqual(expectedStatusCode);
+    })
   });
 });
